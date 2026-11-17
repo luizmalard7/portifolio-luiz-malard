@@ -19,6 +19,26 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('luiz-portfolio-theme', next)
 });
 
+// Movimento do retrato
+const portrait = document.querySelector('.portrait');
+
+if (portrait) {
+    portrait.addEventListener('pointermove', event => {
+        if (event.pointerType !== 'mouse') return;
+
+        const bounds = portrait.getBoundingClientRect();
+        const offsetX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 12;
+        const offsetY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 12;
+
+        portrait.style.setProperty('--portrait-x', offsetX + 'px');
+        portrait.style.setProperty('--portrait-y', offsetY + 'px');
+        portrait.classList.add('is-following');
+    });
+
+    portrait.addEventListener('pointerleave', () => portrait.classList.remove('is-following'));
+    portrait.addEventListener('pointercancel', () => portrait.classList.remove('is-following'));
+}
+
 // Navegação mobile
 const menu = document.querySelector('#menu'),
     menuButton = document.querySelector('#menu-toggle');

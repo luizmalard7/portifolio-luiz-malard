@@ -273,19 +273,38 @@ p {
     width: 100%;
     max-width: 410px;
     margin: auto;
-    border: 1px solid var(--control-border);
     border-radius: 180px 180px 24px 24px;
+    aspect-ratio: 4/5
+}
+
+.portrait-frame {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--control-border);
+    border-radius: inherit;
     overflow: hidden;
-    aspect-ratio: 4/5;
     box-shadow: 0 22px 70px #0005;
     background: var(--surface2)
 }
 
-.portrait img {
+.portrait-frame img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 30%
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .portrait-frame {
+        pointer-events: none;
+        transition: transform .3s ease-out
+    }
+
+    .portrait.is-following .portrait-frame {
+        transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px));
+        transition-duration: .15s
+    }
 }
 
 .two-col {
