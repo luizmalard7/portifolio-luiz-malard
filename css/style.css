@@ -1,13 +1,24 @@
 :root {
     font-family: 'DM Sans', sans-serif;
     color-scheme: dark;
-    --bg: #100b1d;
-    --surface: #191128;
-    --surface2: #241733;
-    --text: #f7f4ff;
-    --muted: #b5a9c6;
-    --accent: #a77aff;
-    --border: rgba(208, 185, 255, .16)
+    --sand: #dbd9b7;
+    --mist: #c1c9c8;
+    --sage: #a5b5ab;
+    --olive: #949a8e;
+    --slate: #615566;
+    --ink: #252a27;
+    --paper: #f5f4e7;
+    --bg: var(--ink);
+    --surface: #333a35;
+    --surface2: #424941;
+    --text: var(--paper);
+    --muted: var(--mist);
+    --accent: var(--sand);
+    --button-bg: var(--accent);
+    --button-text: var(--ink);
+    --border: #949a8e66;
+    --control-border: var(--olive);
+    --hero-glow: #a5b5ab2e
 }
 
 * {
@@ -28,13 +39,17 @@ body {
 
 body[data-theme=light] {
     color-scheme: light;
-    --bg: #faf8ff;
-    --surface: #fff;
-    --surface2: #f1eafa;
-    --text: #241532;
-    --muted: #6d607a;
-    --accent: #7544c8;
-    --border: rgba(70, 35, 105, .13)
+    --bg: var(--sand);
+    --surface: var(--mist);
+    --surface2: var(--sage);
+    --text: var(--ink);
+    --muted: #414840;
+    --accent: #35483f;
+    --button-bg: var(--slate);
+    --button-text: var(--paper);
+    --border: #61556655;
+    --control-border: var(--slate);
+    --hero-glow: #949a8e66
 }
 
 a {
@@ -86,6 +101,19 @@ textarea:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center
+}
+
+.signature-logo {
+    display: inline-flex;
+    width: clamp(128px, 18vw, 164px);
+    padding: 4px 0;
+    color: var(--accent)
+}
+
+.signature-logo svg {
+    display: block;
+    width: 100%;
+    height: auto
 }
 
 .logo {
@@ -140,7 +168,7 @@ nav a:hover,
     inset: -120px auto auto -130px;
     width: 450px;
     height: 450px;
-    background: radial-gradient(circle, #6f38b43d, transparent 70%);
+    background: radial-gradient(circle, var(--hero-glow), transparent 70%);
     pointer-events: none
 }
 
@@ -212,11 +240,11 @@ p {
 }
 
 .btn {
-    background: var(--accent);
-    border: 1px solid var(--accent);
+    background: var(--button-bg);
+    border: 1px solid var(--button-bg);
     border-radius: 10px;
     padding: 15px 22px;
-    color: white;
+    color: var(--button-text);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -246,7 +274,7 @@ p {
     width: 100%;
     max-width: 410px;
     margin: auto;
-    border: 1px solid #b892ec77;
+    border: 1px solid var(--control-border);
     border-radius: 180px 180px 24px 24px;
     overflow: hidden;
     aspect-ratio: 4/5;
@@ -339,7 +367,7 @@ p {
     justify-content: center;
     text-align: center;
     padding: 15px;
-    color: white
+    color: var(--ink)
 }
 
 .art strong {
@@ -348,24 +376,24 @@ p {
 }
 
 .art strong span {
-    color: #c9a7ff
+    color: var(--sand)
 }
 
 .rage {
-    background: radial-gradient(circle, #6932b3, #251235 78%)
+    background: radial-gradient(circle, var(--slate), var(--ink) 78%);
+    color: var(--paper)
 }
 
 .periodic {
-    background: linear-gradient(130deg, #253052, #39254c)
+    background: linear-gradient(130deg, var(--mist), var(--sage))
 }
 
 .first {
-    background: linear-gradient(130deg, #39204d, #161c37)
+    background: linear-gradient(130deg, var(--olive), var(--sand))
 }
 
 .first strong {
-    font: 600 21px monospace;
-    color: #d5b9ff
+    font: 600 21px monospace
 }
 
 .project-copy {
@@ -443,7 +471,7 @@ p {
     margin-top: 9px;
     padding: 14px;
     border-radius: 9px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--control-border);
     background: var(--bg);
     color: var(--text);
     resize: vertical
@@ -452,7 +480,7 @@ p {
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: var(--muted);
-    opacity: .8
+    opacity: 1
 }
 
 .hint,
@@ -493,7 +521,7 @@ dialog {
 }
 
 dialog::backdrop {
-    background: #06030fce;
+    background: #252a27ce;
     backdrop-filter: blur(5px)
 }
 
