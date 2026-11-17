@@ -6,10 +6,7 @@ function setTheme(theme) {
     body.dataset.theme = theme;
     themeButton.textContent = theme === 'dark' ? '☀' : '☾';
     themeButton.setAttribute('aria-label', theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
-    const background = getComputedStyle(body).getPropertyValue('--bg').trim();
-    if (background) {
-        document.querySelector('meta[name="theme-color"]').content = background;
-    }
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#100b1d' : '#faf8ff'
 }
 
 const savedTheme = localStorage.getItem('luiz-portfolio-theme');

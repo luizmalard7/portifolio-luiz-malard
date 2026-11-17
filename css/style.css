@@ -106,11 +106,10 @@ textarea:focus-visible {
 .signature-logo {
     display: inline-flex;
     width: clamp(128px, 18vw, 164px);
-    padding: 4px 0;
-    color: var(--accent)
+    padding: 4px 0
 }
 
-.signature-logo svg {
+.signature-logo img {
     display: block;
     width: 100%;
     height: auto
